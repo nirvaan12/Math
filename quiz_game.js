@@ -17,3 +17,37 @@ function send(){
     row=question_number+input_box+check_button;
     document.getElementById("output").innerHTML=row;
 }
+
+
+question_turn="player1";
+anwser_turn="player2";
+function check(){
+get_anwser=document.getElementById("input_check_box").value;
+if (get_anwser == actualanwser) {
+    if (anwser_turn == "player1") {
+        update_player_1_score=player_1_score+1;
+        document.getElementById("player_1_score").innerHTML= update_player_1_score;
+    }
+    else{
+    update_player_2_score=player_2_score+1;
+    document.getElementById("player_2_score").innerHTML= update_player_2_score;
+    }
+}
+if (question_turn == "player1") {
+    question_turn="player2";
+    document.getElementById("player_question").innerHTML = "Question turn : "+player_2_name;
+}
+else{
+    question_turn="player1";
+    document.getElementById("player_question").innerHTML = "Question turn : "+player_1_name;
+}
+if (anwser_turn == "player1") {
+    anwser_turn="player2";
+    document.getElementById("player_answer").innerHTML = "Answer turn : "+player_2_name;
+}
+else{
+    anwser_turn="player1";
+    document.getElementById("player_answer").innerHTML = "Answer turn : "+player_1_name;
+}
+document.getElementById("output").innerHTML="";
+}
